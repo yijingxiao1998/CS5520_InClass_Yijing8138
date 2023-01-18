@@ -2,4 +2,5 @@
     <string name="app_name">CS5520_InClass_Yijing8138</string>
     <string name="name_button_practice">Practice</string>
     <string name="name_button_log">Log</string>
+    <string name="name_button_toast">toast</string>
 </resources>
