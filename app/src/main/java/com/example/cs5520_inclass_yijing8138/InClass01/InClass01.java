@@ -1,4 +1,4 @@
-package com.example.cs5520_inclass_yijing8138;
+package com.example.cs5520_inclass_yijing8138.InClass01;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.cs5520_inclass_yijing8138.R;
 
 public class InClass01 extends AppCompatActivity {
     final String TAG = "demo";

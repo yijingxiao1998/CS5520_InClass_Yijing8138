@@ -1,4 +1,4 @@
-package com.example.cs5520_inclass_yijing8138;
+package com.example.cs5520_inclass_yijing8138.Practice;
 
 import static android.widget.Toast.LENGTH_LONG;
 
@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.example.cs5520_inclass_yijing8138.R;
 
 public class PracticeActivity extends AppCompatActivity {
     private Button buttonLog, buttonToast;
