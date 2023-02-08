@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:visibility="visible"
-    tools:context=".FirstFragment">
+    tools:context=".InClass03.FirstFragment">
 
     <ImageButton
         android:id="@+id/imageButton_f1"

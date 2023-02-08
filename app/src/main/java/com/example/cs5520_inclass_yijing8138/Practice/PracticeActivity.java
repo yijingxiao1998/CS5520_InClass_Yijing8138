@@ -1,3 +1,7 @@
+/**
+ * Name: Yijing Xiao
+ * Assignment: Practice Activity
+ */
 package com.example.cs5520_inclass_yijing8138.Practice;
 
 import static android.widget.Toast.LENGTH_LONG;

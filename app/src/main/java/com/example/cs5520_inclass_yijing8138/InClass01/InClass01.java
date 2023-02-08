@@ -1,3 +1,7 @@
+/**
+ * Name: Yijing Xiao
+ * Assignment: InClass 01
+ */
 package com.example.cs5520_inclass_yijing8138.InClass01;
 
 import androidx.appcompat.app.AppCompatActivity;

@@ -1,10 +1,15 @@
-package com.example.cs5520_inclass_yijing8138;
+/**
+ * Name: Yijing Xiao
+ * Assignment: InClass 03
+ */
+package com.example.cs5520_inclass_yijing8138.InClass03;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 
 import com.example.cs5520_inclass_yijing8138.InClass02.Profile;
+import com.example.cs5520_inclass_yijing8138.R;
 
 public class InClass03 extends AppCompatActivity
         implements FirstFragment.fromFirstFragmentToFirstFragment,

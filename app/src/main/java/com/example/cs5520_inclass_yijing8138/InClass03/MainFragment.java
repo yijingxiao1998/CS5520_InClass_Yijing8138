@@ -1,4 +1,8 @@
-package com.example.cs5520_inclass_yijing8138;
+/**
+ * Name: Yijing Xiao
+ * Assignment: InClass 03
+ */
+package com.example.cs5520_inclass_yijing8138.InClass03;
 
 import android.content.Context;
 import android.content.Intent;
@@ -23,6 +27,7 @@ import android.widget.Toast;
 import com.example.cs5520_inclass_yijing8138.InClass02.DisplayActivity;
 import com.example.cs5520_inclass_yijing8138.InClass02.InClass02;
 import com.example.cs5520_inclass_yijing8138.InClass02.Profile;
+import com.example.cs5520_inclass_yijing8138.R;
 
 public class MainFragment extends Fragment {
     EditText name, email;

@@ -5,7 +5,7 @@
     android:id="@+id/secondFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondFragment">
+    tools:context=".InClass03.SecondFragment">
 
     <TextView
         android:id="@+id/nameInFragment"

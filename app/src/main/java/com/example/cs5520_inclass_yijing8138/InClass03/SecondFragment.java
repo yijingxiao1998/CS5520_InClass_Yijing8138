@@ -1,4 +1,8 @@
-package com.example.cs5520_inclass_yijing8138;
+/**
+ * Name: Yijing Xiao
+ * Assignment: InClass 03
+ */
+package com.example.cs5520_inclass_yijing8138.InClass03;
 
 import android.os.Bundle;
 
@@ -11,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.cs5520_inclass_yijing8138.InClass02.Profile;
+import com.example.cs5520_inclass_yijing8138.R;
 
 public class SecondFragment extends Fragment {
     private String name, email, device, moodResult;

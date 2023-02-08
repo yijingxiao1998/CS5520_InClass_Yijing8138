@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InClass03">
+    tools:context=".InClass03.InClass03">
 
     <!--    <EditText-->
 <!--        android:id="@+id/editTextPersonName"-->
@@ -151,7 +151,7 @@
 
         <!--    <androidx.fragment.app.FragmentContainerView-->
         <!--        android:id="@+id/mainFragmentContainer"-->
-        <!--        android:name="com.example.cs5520_inclass_yijing8138.MainFragment"-->
+        <!--        android:name="com.example.cs5520_inclass_yijing8138.InClass03.MainFragment"-->
         <!--        android:layout_width="0dp"-->
         <!--        android:layout_height="0dp"-->
         <!--        android:visibility="visible"-->

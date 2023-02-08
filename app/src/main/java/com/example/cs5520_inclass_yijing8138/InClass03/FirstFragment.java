@@ -1,4 +1,8 @@
-package com.example.cs5520_inclass_yijing8138;
+/**
+ * Name: Yijing Xiao
+ * Assignment: InClass 03
+ */
+package com.example.cs5520_inclass_yijing8138.InClass03;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -11,6 +15,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+
+import com.example.cs5520_inclass_yijing8138.R;
+
 public class FirstFragment extends Fragment {
     public FirstFragment() {
         // Required empty public constructor
