@@ -12,6 +12,9 @@
         android:theme="@style/Theme.CS5520_InClass_Yijing8138"
         tools:targetApi="31">
         <activity
+            android:name=".InClass03"
+            android:exported="false" />
+        <activity
             android:name=".InClass02.DisplayActivity"
             android:exported="false" />
         <activity
@@ -27,7 +30,7 @@
             android:name=".Practice.PracticeActivity"
             android:exported="false" />
         <activity
-            android:name=".InClass02.MainActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

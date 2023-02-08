@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.cs5520_inclass_yijing8138.MainActivity;
 import com.example.cs5520_inclass_yijing8138.R;
 
 public class DisplayActivity extends AppCompatActivity {
