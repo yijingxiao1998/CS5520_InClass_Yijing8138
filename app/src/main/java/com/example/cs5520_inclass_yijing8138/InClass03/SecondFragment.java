@@ -19,9 +19,9 @@ import com.example.cs5520_inclass_yijing8138.R;
 
 public class SecondFragment extends Fragment {
     private String name, email, device, moodResult;
-    TextView nameText, emailText, moodText, getDevice;
-    int profileID;
-    ImageView profilePhoto, moodView;
+    private TextView nameText, emailText, moodText, getDevice;
+    private int profileID;
+    private ImageView profilePhoto, moodView;
 
     public SecondFragment() {
         // Required empty public constructor

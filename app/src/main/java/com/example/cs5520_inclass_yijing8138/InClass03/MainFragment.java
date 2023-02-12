@@ -30,16 +30,16 @@ import com.example.cs5520_inclass_yijing8138.InClass02.Profile;
 import com.example.cs5520_inclass_yijing8138.R;
 
 public class MainFragment extends Fragment {
-    EditText name, email;
-    ImageButton imageButton;
-    ImageView dynamicView;
-    SeekBar seekBar;
-    RadioGroup radioGroup;
-    Button submitButton;
-    TextView moodResult;
-    Profile profile = new Profile();
-    Boolean flag1 = false;
-    Boolean flag2 = false;
+    private EditText name, email;
+    private ImageButton imageButton;
+    private ImageView dynamicView;
+    private SeekBar seekBar;
+    private RadioGroup radioGroup;
+    private Button submitButton;
+    private TextView moodResult;
+    private Profile profile = new Profile();
+    private Boolean flag1 = false;
+    private Boolean flag2 = false;
 
     public MainFragment() {
         // Required empty public constructor
