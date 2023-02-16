@@ -10,10 +10,12 @@ import android.widget.Button;
 import com.example.cs5520_inclass_yijing8138.InClass01.InClass01;
 import com.example.cs5520_inclass_yijing8138.InClass02.InClass02;
 import com.example.cs5520_inclass_yijing8138.InClass03.InClass03;
+import com.example.cs5520_inclass_yijing8138.InClass04.InClass04;
 import com.example.cs5520_inclass_yijing8138.Practice.PracticeActivity;
 
 public class MainActivity extends AppCompatActivity {
     private Button buttonPractice, buttonInClass01, buttonInClass02, buttonInClass03;
+    private Button buttonInClass04;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         buttonInClass01 = findViewById(R.id.InClass01_button);
         buttonInClass02 = findViewById(R.id.InClass02_button);
         buttonInClass03 = findViewById(R.id.InClass03_button);
+        buttonInClass04 = findViewById(R.id.InClass04_button);
 
         buttonPractice.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +63,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent toInClass03Activity = new Intent(MainActivity.this,
                         InClass03.class);
+
+                startActivities(new Intent[]{toInClass03Activity});
+            }
+        });
+
+        buttonInClass04.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent toInClass03Activity = new Intent(MainActivity.this,
+                        InClass04.class);
 
                 startActivities(new Intent[]{toInClass03Activity});
             }
