@@ -40,5 +40,9 @@
     <string name="Minimum">Minimum:</string>
     <string name="Average">Average:</string>
     <string name="GeneralteNumber">Generalte Number</string>
+    <string name="InClass05">InClass05</string>
+    <string name="buttonGo">GO</string>
+    <string name="SearchKeyword">Search Keyword</string>
+    <string name="loading">Loading...</string>
     />
 </resources>

@@ -15,7 +15,7 @@ import com.example.cs5520_inclass_yijing8138.Practice.PracticeActivity;
 
 public class MainActivity extends AppCompatActivity {
     private Button buttonPractice, buttonInClass01, buttonInClass02, buttonInClass03;
-    private Button buttonInClass04;
+    private Button buttonInClass04, buttonInClass05;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         buttonInClass02 = findViewById(R.id.InClass02_button);
         buttonInClass03 = findViewById(R.id.InClass03_button);
         buttonInClass04 = findViewById(R.id.InClass04_button);
+        buttonInClass05 = findViewById(R.id.InClass05_button);
 
         buttonPractice.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,10 +72,20 @@ public class MainActivity extends AppCompatActivity {
         buttonInClass04.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent toInClass03Activity = new Intent(MainActivity.this,
+                Intent toInClass04Activity = new Intent(MainActivity.this,
                         InClass04.class);
 
-                startActivities(new Intent[]{toInClass03Activity});
+                startActivities(new Intent[]{toInClass04Activity});
+            }
+        });
+
+        buttonInClass05.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent toInClass05Activity = new Intent(MainActivity.this,
+                        InClass05.class);
+
+                startActivities(new Intent[]{toInClass05Activity});
             }
         });
     }
