@@ -11,6 +11,7 @@ import com.example.cs5520_inclass_yijing8138.InClass01.InClass01;
 import com.example.cs5520_inclass_yijing8138.InClass02.InClass02;
 import com.example.cs5520_inclass_yijing8138.InClass03.InClass03;
 import com.example.cs5520_inclass_yijing8138.InClass04.InClass04;
+import com.example.cs5520_inclass_yijing8138.InClass05.InClass05;
 import com.example.cs5520_inclass_yijing8138.Practice.PracticeActivity;
 
 public class MainActivity extends AppCompatActivity {
