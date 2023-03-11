@@ -6,6 +6,16 @@
     android:layout_height="match_parent">
 
     <Button
+        android:id="@+id/InClass06_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/InClass06"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/InClass05_button" />
+
+    <Button
         android:id="@+id/buttonPractice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

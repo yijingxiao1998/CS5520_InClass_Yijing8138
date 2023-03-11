@@ -44,5 +44,15 @@
     <string name="buttonGo">GO</string>
     <string name="SearchKeyword">Search Keyword</string>
     <string name="loading">Loading...</string>
+    <string name="InClass06">InClass06</string>
+    <string name="country">Please input your country here</string>
+    <string name="Title">Title:</string>
+    <string name="Author">Author:</string>
+    <string name="PublishTime">Publish Time:</string>
+    <string name="Description">Description:</string>
+    <string name="Next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="categoryHint">Please choose one of below:</string>
+    <string name="ImageNotFound">Image Not Found!</string>
     />
 </resources>
