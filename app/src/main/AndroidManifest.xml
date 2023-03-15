@@ -17,6 +17,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".InClass07.InClass07"
+            android:exported="false" />
+        <activity
             android:name=".InClass06.InClass06"
             android:exported="true" />
         <activity

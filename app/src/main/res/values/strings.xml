@@ -54,5 +54,18 @@
     <string name="previous">Previous</string>
     <string name="categoryHint">Please choose one of below:</string>
     <string name="ImageNotFound">Image Not Found!</string>
+    <string name="InCLass07">InCLass07</string>
+    <string name="Password">Password</string>
+    <string name="Register">Register</string>
+    <string name="registerOrLoginHint">Please click button to register or login:</string>
+    <string name="Login">Login</string>
+    <string name="cancel">cancel</string>
+    <string name="ID">ID</string>
+    <string name="Logout">Log Out</string>
+    <string name="Note">Note </string>
+    <string name="Delete">Delete</string>
+    <string name="NoNote">There is no note, please post a new note!</string>
+    <string name="NoteHint">Write anything as note...</string>
+    <string name="Post">Post</string>
     />
 </resources>
