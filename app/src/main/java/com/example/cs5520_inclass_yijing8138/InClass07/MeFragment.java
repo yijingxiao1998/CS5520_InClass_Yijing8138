@@ -91,8 +91,7 @@ public class MeFragment extends Fragment {
                             Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Note note = new Note(newNote);
-                    mListener.postButtonClicked(note);
+                    mListener.postButtonClicked(newNote);
                     Toast.makeText(getContext(), "New note post successfully!",
                             Toast.LENGTH_SHORT).show();
 
@@ -125,6 +124,6 @@ public class MeFragment extends Fragment {
 
     public interface meFragmentShowing{
         void requestLogOut();
-        void postButtonClicked(Note note);
+        void postButtonClicked(String note);
     }
 }

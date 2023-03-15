@@ -69,7 +69,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Log.d("demo", "onBindViewHolder: " + notes);
         holder.getTextViewNote().setVisibility(View.VISIBLE);
         holder.getTextViewNoteContents().setVisibility(View.VISIBLE);
         holder.getTextViewNoteNumber().setVisibility(View.VISIBLE);

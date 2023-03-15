@@ -36,7 +36,6 @@ import okhttp3.Response;
 
 public class InClass07 extends AppCompatActivity implements RegisterFragment.register,
         LoginFragment.login, MeFragment.meFragmentShowing, NoteAdapter.delete {
-    private static final String TAG = "demo";
     private TextView hintTextView;
     private Button buttonClickedToRegister, buttonClickedToLogin;
     private ConstraintLayout constraintLayoutPanel, userConstraintPanel;
@@ -48,7 +47,6 @@ public class InClass07 extends AppCompatActivity implements RegisterFragment.reg
     private RecyclerView.LayoutManager layoutManager;
     private NoteAdapter noteAdapter;
     private ArrayList<Note> notes = new ArrayList<>();
-    private Map<String, String> noteIdMap = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -200,7 +198,6 @@ public class InClass07 extends AppCompatActivity implements RegisterFragment.reg
                                         userConstraintPanel.setVisibility(View.VISIBLE);
                                         recyclerView.setVisibility(View.VISIBLE);
                                         requestInfoFromServe(token);
-                                        //cancelRegister();
                                     }
                                 });
                             }
@@ -290,20 +287,20 @@ public class InClass07 extends AppCompatActivity implements RegisterFragment.reg
         userConstraintPanel.setVisibility(View.INVISIBLE);
         recyclerView.setVisibility(View.INVISIBLE);
         notes = new ArrayList<>();
-        noteIdMap = new HashMap<>();
+        //noteIdMap = new HashMap<>();
         buttonClickedToLogin.setVisibility(View.VISIBLE);
         buttonClickedToRegister.setVisibility(View.VISIBLE);
         hintTextView.setVisibility(View.VISIBLE);
     }
 
     @Override
-    public void postButtonClicked(Note note) {
+    public void postButtonClicked(String note) {
         HttpUrl url = HttpUrl.parse(noteBasedURL + "/post")
                 .newBuilder()
                 .build();
 
         RequestBody requestBody = new FormBody.Builder()
-                .add("text", note.getNote())
+                .add("text", note)
                 .build();
 
         Request request = new Request.Builder()
@@ -325,12 +322,14 @@ public class InClass07 extends AppCompatActivity implements RegisterFragment.reg
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            notes.add(note);
+                            String noteID = null;
                             try {
-                                noteIdMap.put(note.getNote(), response.body().string());
+                                noteID = response.body().string();
                             } catch (IOException e) {
                                 throw new RuntimeException(e);
                             }
+                            Note newNote = new Note(note, noteID);
+                            notes.add(newNote);
                             noteAdapter.notifyDataSetChanged();
                         }
                     });
@@ -373,15 +372,13 @@ public class InClass07 extends AppCompatActivity implements RegisterFragment.reg
                     String string = response.body().string();
                     try {
                         JSONObject rootObject = new JSONObject(string);
-                        Log.d(TAG, "onResponse: " + rootObject.toString());
                         JSONArray jsonArray = rootObject.getJSONArray("notes");
                         for (int i = 0; i < jsonArray.length(); i++)
                         {
                             String noteText = jsonArray.getJSONObject(i).getString("text");
                             String noteID = jsonArray.getJSONObject(i).getString("_id");
-                            Note noteFromArray = new Note(noteText);
+                            Note noteFromArray = new Note(noteText, noteID);
                             notes.add(noteFromArray);
-                            noteIdMap.put(noteText, noteID);
                         }
 
                     } catch (JSONException e) {
@@ -392,7 +389,6 @@ public class InClass07 extends AppCompatActivity implements RegisterFragment.reg
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Log.d(TAG, "run: " + notes + "   " + notes.size());
                         layoutManager = new LinearLayoutManager(InClass07.this);
                         recyclerView.setLayoutManager(layoutManager);
                         noteAdapter = new NoteAdapter(notes, InClass07.this);
@@ -410,7 +406,7 @@ public class InClass07 extends AppCompatActivity implements RegisterFragment.reg
                 .build();
 
         RequestBody requestBody = new FormBody.Builder()
-                .add("id", Objects.requireNonNull(noteIdMap.get(note.getNote())))
+                .add("id", Objects.requireNonNull(note.getNoteID()))
                 .build();
 
         Request request = new Request.Builder()
@@ -435,7 +431,6 @@ public class InClass07 extends AppCompatActivity implements RegisterFragment.reg
                             Toast.makeText(InClass07.this, "Delete note successfully!",
                                     Toast.LENGTH_SHORT).show();
                             notes.remove(note);
-                            noteIdMap.remove(note.getNote());
                             noteAdapter.notifyDataSetChanged();
                         }
                     });
