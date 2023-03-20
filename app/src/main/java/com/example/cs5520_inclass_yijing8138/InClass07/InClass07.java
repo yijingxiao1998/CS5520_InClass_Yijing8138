@@ -6,6 +6,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +15,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cs5520_inclass_yijing8138.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -47,6 +55,8 @@ public class InClass07 extends AppCompatActivity implements RegisterFragment.reg
     private RecyclerView.LayoutManager layoutManager;
     private NoteAdapter noteAdapter;
     private ArrayList<Note> notes = new ArrayList<>();
+    SharedPreferences sharedPref;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,40 +64,57 @@ public class InClass07 extends AppCompatActivity implements RegisterFragment.reg
         setContentView(R.layout.activity_in_class07);
         setTitle("InClass07");
 
-        buttonClickedToRegister = findViewById(R.id.buttonClickedToRegister);
-        buttonClickedToLogin = findViewById(R.id.buttonClickedToLogin);
-        hintTextView = findViewById(R.id.hintTextView);
+        sharedPref = getSharedPreferences("com.example.cs5520_inclass_yijing8138", 0);
+        editor = sharedPref.edit();
+
         constraintLayoutPanel = findViewById(R.id.rootConstraintPanel);
         userConstraintPanel = findViewById(R.id.userConstraintPanel);
         recyclerView = findViewById(R.id.recyclerView);
+        buttonClickedToRegister = findViewById(R.id.buttonClickedToRegister);
+        buttonClickedToLogin = findViewById(R.id.buttonClickedToLogin);
+        hintTextView = findViewById(R.id.hintTextView);
 
-        buttonClickedToRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                constraintLayoutPanel.setVisibility(View.VISIBLE);
-                buttonClickedToLogin.setVisibility(View.INVISIBLE);
-                buttonClickedToRegister.setVisibility(View.INVISIBLE);
-                hintTextView.setVisibility(View.INVISIBLE);
+        token = sharedPref.getString("login", null);
+        if(token != null)
+        {
+            buttonClickedToLogin.setVisibility(View.INVISIBLE);
+            buttonClickedToRegister.setVisibility(View.INVISIBLE);
+            hintTextView.setVisibility(View.INVISIBLE);
+            constraintLayoutPanel.setVisibility(View.INVISIBLE);
+            userConstraintPanel.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.VISIBLE);
+            Toast.makeText(this, "Welcome back!", Toast.LENGTH_SHORT).show();
+            requestInfoFromServe(token);
+        }
+        else {
+            buttonClickedToRegister.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    constraintLayoutPanel.setVisibility(View.VISIBLE);
+                    buttonClickedToLogin.setVisibility(View.INVISIBLE);
+                    buttonClickedToRegister.setVisibility(View.INVISIBLE);
+                    hintTextView.setVisibility(View.INVISIBLE);
 
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.rootConstraintPanel, RegisterFragment.newInstance(), "registerFragment")
-                        .commit();
-            }
-        });
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.rootConstraintPanel, RegisterFragment.newInstance(), "registerFragment")
+                            .commit();
+                }
+            });
 
-        buttonClickedToLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                constraintLayoutPanel.setVisibility(View.VISIBLE);
-                buttonClickedToLogin.setVisibility(View.INVISIBLE);
-                buttonClickedToRegister.setVisibility(View.INVISIBLE);
-                hintTextView.setVisibility(View.INVISIBLE);
+            buttonClickedToLogin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    constraintLayoutPanel.setVisibility(View.VISIBLE);
+                    buttonClickedToLogin.setVisibility(View.INVISIBLE);
+                    buttonClickedToRegister.setVisibility(View.INVISIBLE);
+                    hintTextView.setVisibility(View.INVISIBLE);
 
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.rootConstraintPanel, LoginFragment.newInstance(), "loginFragment")
-                        .commit();
-            }
-        });
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.rootConstraintPanel, LoginFragment.newInstance(), "loginFragment")
+                            .commit();
+                }
+            });
+        }
     }
 
     @Override
@@ -194,6 +221,10 @@ public class InClass07 extends AppCompatActivity implements RegisterFragment.reg
                                         Toast.makeText(InClass07.this,
                                                 "Login successfully!", Toast.LENGTH_SHORT)
                                                 .show();
+
+                                        editor.putString("login", token);
+                                        editor.commit();
+
                                         constraintLayoutPanel.setVisibility(View.INVISIBLE);
                                         userConstraintPanel.setVisibility(View.VISIBLE);
                                         recyclerView.setVisibility(View.VISIBLE);
@@ -287,7 +318,8 @@ public class InClass07 extends AppCompatActivity implements RegisterFragment.reg
         userConstraintPanel.setVisibility(View.INVISIBLE);
         recyclerView.setVisibility(View.INVISIBLE);
         notes = new ArrayList<>();
-        //noteIdMap = new HashMap<>();
+        editor.remove("login");
+        editor.commit();
         buttonClickedToLogin.setVisibility(View.VISIBLE);
         buttonClickedToRegister.setVisibility(View.VISIBLE);
         hintTextView.setVisibility(View.VISIBLE);
