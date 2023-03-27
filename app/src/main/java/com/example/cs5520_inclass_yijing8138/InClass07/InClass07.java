@@ -59,7 +59,7 @@ public class InClass07 extends AppCompatActivity implements RegisterFragment.reg
 
         constraintLayoutPanel = findViewById(R.id.rootConstraintPanel);
         userConstraintPanel = findViewById(R.id.userConstraintPanel);
-        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerViewOfChatPage);
         buttonClickedToRegister = findViewById(R.id.buttonClickedToRegister);
         buttonClickedToLogin = findViewById(R.id.buttonClickedToLogin);
         hintTextView = findViewById(R.id.hintTextView);

@@ -14,11 +14,13 @@ import com.example.cs5520_inclass_yijing8138.InClass04.InClass04;
 import com.example.cs5520_inclass_yijing8138.InClass05.InClass05;
 import com.example.cs5520_inclass_yijing8138.InClass06.InClass06;
 import com.example.cs5520_inclass_yijing8138.InClass07.InClass07;
+import com.example.cs5520_inclass_yijing8138.InClass08.InCLass08;
 import com.example.cs5520_inclass_yijing8138.Practice.PracticeActivity;
 
 public class MainActivity extends AppCompatActivity {
     private Button buttonPractice, buttonInClass01, buttonInClass02, buttonInClass03;
     private Button buttonInClass04, buttonInClass05, buttonInClass06, buttonInClass07;
+    private Button buttonInClass08;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         buttonInClass05 = findViewById(R.id.InClass05_button);
         buttonInClass06 = findViewById(R.id.InClass06_button);
         buttonInClass07 = findViewById(R.id.InCLass07_button);
+        buttonInClass08 = findViewById(R.id.InCLass08_button);
 
         buttonPractice.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,6 +114,16 @@ public class MainActivity extends AppCompatActivity {
                         InClass07.class);
 
                 startActivities(new Intent[]{toInClass07Activity});
+            }
+        });
+
+        buttonInClass08.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent toInClass08Activity = new Intent(MainActivity.this,
+                        InCLass08.class);
+
+                startActivities(new Intent[]{toInClass08Activity});
             }
         });
     }

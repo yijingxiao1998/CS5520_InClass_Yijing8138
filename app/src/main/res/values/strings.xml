@@ -67,5 +67,16 @@
     <string name="NoNote">There is no note, please post a new note!</string>
     <string name="NoteHint">Write anything as note...</string>
     <string name="Post">Post</string>
+    <string name="InCLass08">InCLass08</string>
+    <string name="GoToRegisterHint">Don\'t have account? Click here to register.</string>
+    <string name="FirstName">First Name</string>
+    <string name="LastName">Last Name</string>
+    <string name="GoToLoginHint">Already have account? Click here to login.</string>
+    <string name="AddNewFriend">Add New Friend</string>
+    <string name="EnterYourFriendEmail">Your Friend\'s Email</string>
+    <string name="Chat">Chat</string>
+    <string name="NewFriendUserName">New Friend\'s UserName</string>
+    <string name="UserName">UserName</string>
+    <string name="BackToMainPage">Back To Main Page</string>
     />
 </resources>
