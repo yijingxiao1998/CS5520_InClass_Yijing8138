@@ -5,7 +5,6 @@ import java.io.Serializable;
 public class Friend implements Serializable {
     private String name;
     private String email;
-
     public Friend() {
     }
 

@@ -1,8 +1,15 @@
 package com.example.cs5520_inclass_yijing8138.InClass08;
 
+import static android.app.Activity.RESULT_OK;
+
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -42,7 +49,7 @@ public class ChatPageFragment extends Fragment {
     private static final String ARG_CHAT_MESSAGE = "chat_message";
     private static final String ARG_FRIEND_EMAIL = "friend_email";
     private EditText inputMessage;
-    private Button postButton;
+    private Button sendImageButton, postButton;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager recyclerViewManger;
     private ChatMessageAdaptor chatMessageAdaptor;
@@ -108,12 +115,23 @@ public class ChatPageFragment extends Fragment {
         postButton = view.findViewById(R.id.sendMessageButton);
         backButton = view.findViewById(R.id.backToMainPageButton);
         recyclerView = view.findViewById(R.id.recyclerViewOfChatPage);
+        sendImageButton = view.findViewById(R.id.sendImageButton);
 
         // Set up recyclerView
         recyclerViewManger = new LinearLayoutManager(getContext());
         chatMessageAdaptor = new ChatMessageAdaptor(chatMessageArrayList, getContext());
         recyclerView.setLayoutManager(recyclerViewManger);
         recyclerView.setAdapter(chatMessageAdaptor);
+
+        sendImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                chatPageListener.sendImageButtonClicked();
+//                sendImageButtonClicked();
+                Intent toInClass09 = new Intent(getActivity(), InClass09.class);
+                startToActivity.launch(toInClass09);
+            }
+        });
 
         postButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,7 +140,7 @@ public class ChatPageFragment extends Fragment {
                 if(!message.isEmpty()) {
                     ChatMessage chatMessage = new ChatMessage(message,
                             firebaseAuth.getCurrentUser().getDisplayName(),
-                            String.valueOf(chatMessageArrayList.size() + 1));
+                            String.valueOf(chatMessageArrayList.size() + 1), "false");
                     postMessage(chatMessage);
                     inputMessage.setText("");
                 }
@@ -205,6 +223,24 @@ public class ChatPageFragment extends Fragment {
         chatMessageArrayList = chatMessages;
         chatMessageAdaptor.notifyDataSetChanged();
     }
+
+    ActivityResultLauncher<Intent> startToActivity
+            = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if(result.getResultCode() == RESULT_OK)
+                    {
+                        //imageUri
+                        Intent data = result.getData();
+                        String selectedImageUri = data.getStringExtra("imageUri");
+                        ChatMessage chatMessage = new ChatMessage(selectedImageUri,
+                                firebaseAuth.getCurrentUser().getDisplayName(),
+                                String.valueOf(chatMessageArrayList.size() + 1), "true");
+                        postMessage(chatMessage);
+                    }
+                }
+            });
 
     public interface chatPage{
         void backToMainPage();

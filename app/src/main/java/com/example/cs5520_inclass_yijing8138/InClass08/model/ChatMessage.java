@@ -11,15 +11,17 @@ public class ChatMessage implements Serializable {
     private String chatUser;
     private String time;
     private String number;
+    private String isImageUri;
 
     public ChatMessage() {
     }
 
     @SuppressLint("SimpleDateFormat")
-    public ChatMessage(String messageText, String chatUser, String number) {
+    public ChatMessage(String messageText, String chatUser, String number, String isImageUri) {
         this.messageText = messageText;
         this.chatUser = chatUser;
         this.number = number;
+        this.isImageUri = isImageUri;
         this.time = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss").format(new Date().getTime());
     }
 
@@ -45,6 +47,14 @@ public class ChatMessage implements Serializable {
 
     public void setNumber(String number) {
         this.number = number;
+    }
+
+    public String getIsImageUri() {
+        return isImageUri;
+    }
+
+    public void setIsImageUri(String isImageUri) {
+        this.isImageUri = isImageUri;
     }
 
     public String getTime() {
